@@ -1,4 +1,4 @@
-import { Player } from "./classes/Player.js";
+import Play from "./classes/Player.js";
 
-const play = new Player();
-play.start();
+
+Play.start();

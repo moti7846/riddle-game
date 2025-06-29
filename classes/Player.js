@@ -2,7 +2,7 @@ import allplay from "../riddles/Riddles.js";
 import { Riddle } from "./Riddle.js";
 import { question } from "readline-sync";
 
-export class Player{
+class Player{
     constructor(){
         this.times = [];
         this.hello()
@@ -36,3 +36,5 @@ export class Player{
         console.log(`Average per puzzle: ${this.showStats() / this.times.length}`)
     }
 }
+
+export default new Player();
