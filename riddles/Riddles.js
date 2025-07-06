@@ -29,9 +29,6 @@ function deleteRiddle() {
 
 }
 
-function updateRiddle() {
-
-}
 
 function add(riddle){
     readRiddle().then(res => {
@@ -56,7 +53,7 @@ function readFromUser(){
     })
 }
 
-function update(id,riddle){
+function updateRiddle(id,riddle){
     readRiddle().then(data => {
         let index;
         for (let i = 0; i < data.length; i++) {
@@ -76,3 +73,19 @@ function update(id,riddle){
     })
 }
 
+
+async function add2(riddle){
+    let data;
+    try {
+        data = await readRiddle()
+        await data.push(riddle)
+    } catch (error) {
+        console.log(`Error read riddles: ${error}`);
+        return;
+    }
+    try {
+        await addRiddle(data)
+    } catch (error) {
+        console.log(`Error adding riddle: ${error}`);
+    }
+}
