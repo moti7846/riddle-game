@@ -60,9 +60,11 @@ function update(id,riddle){
     readRiddle().then(data => {
         let index;
         for (let i = 0; i < data.length; i++) {
-            if(i.id === id)
+            if(data[i].id === id){
+                index = i
+                break;
+            }
         }
-        console.log(index);
         data[index] = riddle;
         addRiddle(data).then(msg => {
             console.log("up" + index);
@@ -74,16 +76,3 @@ function update(id,riddle){
     })
 }
 
-// add({
-//         id: 3,
-//         name: "my name",
-//         taskDescription: "moti",
-//         correctAnswer: "22"
-//     })
-// readFromUser()
-update(2,{
-        id: 3,
-        name: "my name",
-        taskDescription: "moti",
-        correctAnswer: "22"
-    })
