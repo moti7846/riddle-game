@@ -1,29 +1,4 @@
-import fs from "fs"
 
-const path = "./db.txt"
-
-function addRiddle(data) {
-    data = JSON.stringify(data)
-    return new Promise((resolve, reject) => {
-         fs.writeFile(path, data ,(err) => {
-            if(err){
-                reject(`Error adding riddle: ${err}`)
-            }
-            resolve("The riddle was added successfully.")
-         })
-    })
-}
-
-function readRiddle() {
-    return new Promise((resolve, reject) => {
-         fs.readFile(path, "utf-8", (err, data) => {
-            if(err){
-                reject(`Error read riddles: ${err}`)
-            }
-            resolve(JSON.parse(data))
-         })
-    })
-}
 
 function deleteRiddle() {
 
