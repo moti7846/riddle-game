@@ -1,7 +1,7 @@
 import fs from "fs"
 
 
-function writeFile(path, data) {
+function writeDBFile(path, data) {
     data = JSON.stringify(data)
     return new Promise((resolve, reject) => {
          fs.writeFile(path, data ,(err) => {
@@ -13,7 +13,7 @@ function writeFile(path, data) {
     })
 }
 
-function readFile(path) {
+function readDBFile(path,) {
     return new Promise((resolve, reject) => {
          fs.readFile(path, "utf-8", (err, data) => {
             if(err){
@@ -24,4 +24,7 @@ function readFile(path) {
     })
 }
 
-export {writeFile, readFile}
+export {
+    writeDBFile,
+    readDBFile
+}
