@@ -74,11 +74,17 @@ async function deleteRiddle(id){
     }    
 }
 
+function getAll(){
+    return readFile(path)
+}
+
 // readReddlesFromUser()
-updateRiddle(3,{
-        "id" : 4691,
-        "name" : "moti"
-    })
+// updateRiddle(3,{
+//         "id" : 4691,
+//         "name" : "moti"
+//     })
 // readReddlesFromUser()
 // deleteRiddle(4691)
-readReddlesFromUser()
+// readReddlesFromUser()
+
+console.log(JSON.stringify(getAll()));
