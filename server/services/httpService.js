@@ -1,4 +1,4 @@
-import {showRiddles, addriddle, updateRiddle, deleteRiddle} from "./services/riddlesService.js";
+import {showRiddles, addriddle, updateRiddle, deleteRiddle} from "./riddlesService.js";
 
 async function operationGET(req, res) {
     
