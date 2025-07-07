@@ -2,7 +2,7 @@ import {writeFile, readFile} from "../DAL/function.js"
 
 const path = "C:\\Users\\97253\\Desktop\\riddle-game\\DAL\\riddles.txt"
 
-function readReddlesFromUser(){
+function showRiddles(){
     readFile(path).then(data => {
         data.forEach(reddle => {
             console.log(reddle);
@@ -28,7 +28,7 @@ async function addriddle(riddle){
     }
 }
 
-async function updateRiddle(id,riddle){
+async function updateRiddle(riddle){
     let data;
     let index;
     try {
@@ -38,7 +38,7 @@ async function updateRiddle(id,riddle){
         return
     }
     for (let i = 0; i < data.length; i++) {
-        if(data[i].id === id){
+        if(data[i].id === riddle.id){
             index = i
             break;
         }
