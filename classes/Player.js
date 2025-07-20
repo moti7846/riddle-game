@@ -1,14 +1,15 @@
-import allplay from "../riddles/Riddles.js";
+import { getRiddles } from "../api/riddle.js";
 import { Riddle } from "./Riddle.js";
 import { question } from "readline-sync";
+
+const riddles = await getRiddles()
 
 class Player{
     constructor(){
         this.times = [];
-        this.hello()
     }
     start(){
-        allplay.forEach(item => {
+        riddles.forEach(item => {
             this.riddle = new Riddle(item);
             const time = this.riddle.askAndTime(()=> this.riddle.ask());
             this.recordTime(time);
@@ -18,7 +19,8 @@ class Player{
     hello(){
         console.log("----Welcome to the game----");
         this.name = question("What is your name? ")
-        console.log(`hello ${this.name}`);
+        this.playerDetails = fetch("");
+        console.log(`hello ${this.name}, your best time is ${this.playerDetails.bestTime}`);
     }
     recordTime(time){
         this.times.push(time);

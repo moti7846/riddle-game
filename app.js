@@ -1,4 +1,6 @@
-import Play from "./classes/Player.js";
+import { start } from "./menu/startMenu.js";
 
-
-Play.start();
+console.log("----Welcome to the game----");
+const name = question("What is your name? ")
+console.log(`hello ${this.name}`);
+await start()
