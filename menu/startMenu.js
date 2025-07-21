@@ -34,9 +34,8 @@ async function menu(choice){
         case '7':
             console.log("goodbye...");
             return;
-        default:
-            start()
     }
+    start()
 }
 
 function printMenu(){
