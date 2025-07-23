@@ -7,21 +7,25 @@ export class Riddle {
         this.taskDescription = riddle.taskDescription;
         this.correctAnswer = riddle.correctAnswer;
     }
-    ask(){
+    ask() {
         console.log(`id: ${this.id} , ${this.name}`);
         let answer;
-        while (answer !== this.correctAnswer) {
+        while (true) {
             answer = question(this.taskDescription);
+            if (answer === this.correctAnswer) {
+                 return
+            }
+            console.log("Wrong answer");
         }
     }
-    askAndTime(fn){
+    askAndTime(fn) {
         const start = Date.now();
         fn();
         const end = Date.now();
-        const tempTime = this.CalculationTime(start , end)
+        const tempTime = this.CalculationTime(start, end)
         return tempTime;
     }
-    CalculationTime(start , end){
+    CalculationTime(start, end) {
         return Math.round(((end - start) / 1000));
     }
 }

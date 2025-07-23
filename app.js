@@ -1,4 +1,4 @@
-import Play from "./classes/Player.js";
+import { start } from "./menu/startMenu.js";
 
-
-Play.start();
+console.log("----Welcome to the game----");
+await start()

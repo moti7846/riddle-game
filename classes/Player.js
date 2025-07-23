@@ -1,39 +1,50 @@
-import allplay from "../riddles/Riddles.js";
+import { getRiddles } from "../api/riddle.js";
 import { Riddle } from "./Riddle.js";
 import { question } from "readline-sync";
 
-class Player{
-    constructor(){
+const riddles = await getRiddles()
+
+class Player {
+    constructor() {
         this.times = [];
-        this.hello()
     }
-    start(){
-        allplay.forEach(item => {
+    start() {
+        riddles.forEach(item => {
             this.riddle = new Riddle(item);
-            const time = this.riddle.askAndTime(()=> this.riddle.ask());
+            const time = this.riddle.askAndTime(() => this.riddle.ask());
             this.recordTime(time);
         });
         this.end();
     }
-    hello(){
+    hello() {
+        console.log("===========================");
         console.log("----Welcome to the game----");
-        this.name = question("What is your name? ")
-        console.log(`hello ${this.name}`);
+        if (user.rule === 'guest')
+            this.bestTime = 0;
+        else{
+            this.bestTime = "כאן יגיע הבקשה"
+        }
+        console.log(`hello ${this.name}, your best time is ${this.bestTime}`);
     }
-    recordTime(time){
+    recordTime(time) {
         this.times.push(time);
     }
-    showStats(){
+    showStats() {
         this.totalTime = 0;
         this.times.forEach(time => {
             this.totalTime += time
         });
         return this.totalTime
     }
-    end(){
-        console.log(this.name)
-        console.log(`Playing time: ${this.showStats()}`)
+    async end() {
+        console.log("===========================");
+        console.log(user.name)
+        this.timePlay = this.showStats()
+        console.log(`Playing time: ${this.timePlay}`)
         console.log(`Average per puzzle: ${this.showStats() / this.times.length}`)
+        if (this.bestTime > this.timePlay)
+            await fetch("")
+        console.log("===========================");
     }
 }
 
