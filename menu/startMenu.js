@@ -13,8 +13,8 @@ const options_menu = [
     "7. Exit"
 ]
 
-async function menu(choice){
-    switch (choice){
+async function menu(choice) {
+    switch (choice) {
         case '1':
             Play.start();
             break
@@ -38,22 +38,23 @@ async function menu(choice){
     start()
 }
 
-function printMenu(){
+function printMenu() {
     options_menu.forEach(option => {
         console.log(option);
     });
 }
 
-function inputChoice(){
-    const choice = question("Enter your choice: ");
-    if(choice >= 1 && choice <= 7)
-        return choice;
-    console.log("Wrong choice, try again...");
-    return inputChoice();
+function inputChoice() {
+    while (true){
+        const choice = question("Enter your choice: ");
+        if (Number(choice) >= 1 && Number(choice) <= 7)
+            return choice;
+        console.log("Wrong choice, try again...");
+    }
 }
 
-export async function start(){
-    printMenu()
-    const choice = inputChoice()
+export async function start() {
+    printMenu();
+    const choice = inputChoice();
     await menu(choice);
 }
