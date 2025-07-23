@@ -1,6 +1,8 @@
 import { getRiddles } from "../api/riddle.js";
+import user from "../config.js";
 import { Riddle } from "./Riddle.js";
 import { question } from "readline-sync";
+
 
 const riddles = await getRiddles()
 
