@@ -1,7 +1,9 @@
 
-import { addRiddle, editRiddle, printAllRiddles } from "../service/menuApi.js"
+import { addRiddle, editRiddle, loginService, printAllRiddles, signupService } from "../service/menuApi.js"
 import { question } from "readline-sync";
 import Play from "../classes/Player.js"
+import { login } from "../api/auth.js";
+import { user } from "../config.js";
 
 const options_menu = [
     "1. Play the game",
@@ -10,7 +12,10 @@ const options_menu = [
     "4. Update an existing riddle",
     "5. Delete a riddle",
     "6. View leaderboard",
-    "7. Exit"
+    "7. Exit",
+    "8. Login",
+    "9. Signup",
+    "10. View current user"
 ]
 
 async function menu(choice) {
@@ -34,6 +39,15 @@ async function menu(choice) {
         case '7':
             console.log("goodbye...");
             return;
+        case '8':
+            loginService();
+            break
+        case '9':
+            signupService();
+            break
+        case '10':
+            console.log("You are logged in as: " + user.name);
+            break;
     }
     start()
 }
@@ -47,7 +61,7 @@ function printMenu() {
 function inputChoice() {
     while (true){
         const choice = question("Enter your choice: ");
-        if (Number(choice) >= 1 && Number(choice) <= 7)
+        if (Number(choice) >= 1 && Number(choice) <= 10)
             return choice;
         console.log("Wrong choice, try again...");
     }

@@ -1,5 +1,5 @@
 import { getRiddles } from "../api/riddle.js";
-import user from "../config.js";
+import {user} from "../config.js";
 import { Riddle } from "./Riddle.js";
 import { question } from "readline-sync";
 
@@ -21,7 +21,7 @@ class Player {
     hello() {
         console.log("===========================");
         console.log("----Welcome to the game----");
-        if (user.rule === 'guest')
+        if (user.role === 'guest')
             this.bestTime = 0;
         else{
             this.bestTime = "כאן יגיע הבקשה"

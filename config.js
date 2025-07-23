@@ -1,3 +1,5 @@
-const user = { name: "guest", rule: "guest" }
+export const user = { name: "guest", role: "guest" }
 
-export default user;
+export function upUser(token){
+    user = token;
+}
