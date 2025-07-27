@@ -1,9 +1,8 @@
 
-import { addRiddle, editRiddle, loginService, printAllRiddles, signupService } from "../service/menuApi.js"
+import { addRiddle, editRiddle, printAllRiddles } from "../service/menuApi.js"
 import { question } from "readline-sync";
 import Play from "../classes/Player.js"
-import { login } from "../api/auth.js";
-import { user } from "../config.js";
+import { loginService, signupService, user } from "../userConnection/config.js";
 
 const options_menu = [
     "1. Play the game",
@@ -40,10 +39,10 @@ async function menu(choice) {
             console.log("goodbye...");
             return;
         case '8':
-            loginService();
+            await loginService();
             break
         case '9':
-            signupService();
+            await signupService();
             break
         case '10':
             console.log("You are logged in as: " + user.name);
