@@ -1,7 +1,7 @@
+import { upBestTime } from "../api/player.js";
 import { getRiddles } from "../api/riddle.js";
-import {user} from "../service/user.js";
+import { user } from "../service/user.js";
 import { Riddle } from "./Riddle.js";
-import { question } from "readline-sync";
 
 
 const riddles = await getRiddles()
@@ -10,14 +10,14 @@ class Player {
     constructor() {
         this.times = [];
     }
-    start() {
+    async start() {
         this.hello()
         riddles.forEach(item => {
             this.riddle = new Riddle(item);
             const time = this.riddle.askAndTime(() => this.riddle.ask());
             this.recordTime(time);
         });
-        this.end();
+        await this.end();
     }
     hello() {
         console.log("==============================");
@@ -25,8 +25,8 @@ class Player {
         console.log("==============================");
         if (user.role === 'guest')
             this.bestTime = 0;
-        else{
-            this.bestTime = "כאן יגיע הבקשה"
+        else {
+            this.bestTime = 1000
         }
         console.log(`hello ${user.name}, your best time is ${this.bestTime}`);
         console.log("<<<<<<<<<<----->>>>>>>>>>")
@@ -46,8 +46,16 @@ class Player {
         this.timePlay = this.showStats()
         console.log(`Playing time: ${this.timePlay}`)
         console.log(`Average per puzzle: ${this.showStats() / this.times.length}`)
-        if (this.bestTime > this.timePlay)
-            await fetch("")
+        if (user.role !== 'guest') {
+            if (this.bestTime > 0) {
+                const response = await upBestTime(this.timePlay);
+                console.log(response);
+            }
+        }
+        else {
+            console.log("Guest user - best time not recorded.");
+        }
+        
         console.log("------------------------------");
     }
 }

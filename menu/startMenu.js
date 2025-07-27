@@ -20,7 +20,7 @@ const options_menu = [
 async function menu(choice) {
     switch (choice) {
         case '1':
-            Play.start();
+            await Play.start();
             break
         case '2':
             await addRiddle();
