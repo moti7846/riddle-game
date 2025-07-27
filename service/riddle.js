@@ -1,7 +1,5 @@
-import { login } from "../api/auth.js";
-import { createRiddle, getRiddles, updateRiddle } from "../api/riddle.js";
 import { question } from "readline-sync";
-import { user } from "../userConnection/config.js";
+import { createRiddle, getRiddles, updateRiddle } from "../api/riddle.js";
 
 export async function printAllRiddles() {
     const riddles = await getRiddles()

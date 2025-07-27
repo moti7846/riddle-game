@@ -11,7 +11,7 @@ export class Riddle {
         console.log(`id: ${this.id} , ${this.name}`);
         let answer;
         while (true) {
-            answer = question(this.taskDescription);
+            answer = question(`${this.taskDescription} `);
             if (answer === this.correctAnswer) {
                  return
             }
