@@ -1,5 +1,5 @@
-import { createRiddle, getRiddles, updateRiddle } from "../api/riddle.js";
 import { question } from "readline-sync";
+import { createRiddle, getRiddles, updateRiddle } from "../api/riddle.js";
 
 export async function printAllRiddles() {
     const riddles = await getRiddles()

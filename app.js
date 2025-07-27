@@ -1,4 +1,6 @@
 import { start } from "./menu/startMenu.js";
 
-console.log("----Welcome to the game----");
+console.log("==============================");
+console.log("- - - - -  Welcome  - - - - -");
+console.log("==============================");
 await start()

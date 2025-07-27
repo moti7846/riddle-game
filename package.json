@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "dotenv": "^17.2.0",
+    "jsonwebtoken": "^9.0.2",
     "readline-sync": "^1.4.10"
   },
   "name": "riddle-game",

@@ -6,7 +6,7 @@ export async function getRiddles() {
         const riddle = await response.json();
         return riddle
     } catch (err) {
-        return err ;
+        throw err
     }
 }
 
